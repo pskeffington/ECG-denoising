@@ -1,11 +1,63 @@
-% Starter bibliography for ECG denoising and signal-quality benchmark project.
-% Replace placeholders with verified dataset, denoising-method, metric, and software references.
+% Bibliography for ECG denoising and signal-quality benchmark project.
+% Dataset and method choices must be reconciled with docs/BENCHMARK_PROTOCOL.md.
 
-@comment{Add public ECG dataset, denoising-method, morphology-preservation, signal-quality, biomedical AI evaluation, and software references here.}
+@article{goldberger_2000_physionet,
+  author  = {Goldberger, Ary L. and Amaral, Luis A. N. and Glass, Leon and Hausdorff, Jeffrey M. and Ivanov, Plamen Ch. and Mark, Roger G. and Mietus, Joseph E. and Moody, George B. and Peng, Chung-Kang and Stanley, H. Eugene},
+  title   = {PhysioBank, PhysioToolkit, and PhysioNet: Components of a New Research Resource for Complex Physiologic Signals},
+  journal = {Circulation},
+  year    = {2000},
+  volume  = {101},
+  number  = {23},
+  pages   = {e215--e220},
+  doi     = {10.1161/01.CIR.101.23.e215}
+}
 
-@misc{ecg_denoising_bibliography_placeholder,
-  title        = {ECG Denoising Bibliography Placeholder},
-  author       = {{Project bibliography manifest}},
+@article{moody_mark_2001_mitbih,
+  author  = {Moody, George B. and Mark, Roger G.},
+  title   = {The Impact of the MIT-BIH Arrhythmia Database},
+  journal = {IEEE Engineering in Medicine and Biology Magazine},
+  year    = {2001},
+  volume  = {20},
+  number  = {3},
+  pages   = {45--50},
+  doi     = {10.1109/51.932724}
+}
+
+@misc{physionet_mit_bih_arrhythmia,
+  author       = {{PhysioNet}},
+  title        = {MIT-BIH Arrhythmia Database},
   year         = {2026},
-  note         = {Placeholder only. Replace with verified dataset and methods references after benchmark protocol decisions are made.}
+  howpublished = {PhysioNet database record},
+  url          = {https://physionet.org/content/mitdb/},
+  note         = {Candidate dataset citation; record version and access date before benchmark use.}
+}
+
+@article{pan_tompkins_1985_qrs,
+  author  = {Pan, Jiapu and Tompkins, Willis J.},
+  title   = {A Real-Time QRS Detection Algorithm},
+  journal = {IEEE Transactions on Biomedical Engineering},
+  year    = {1985},
+  volume  = {BME-32},
+  number  = {3},
+  pages   = {230--236},
+  doi     = {10.1109/TBME.1985.325532}
+}
+
+@article{clifford_2006_advanced_ecg,
+  author  = {Clifford, Gari D. and Azuaje, Francisco and McSharry, Patrick E.},
+  title   = {Advanced Methods and Tools for ECG Data Analysis},
+  journal = {Artech House},
+  year    = {2006},
+  note    = {General ECG signal-processing reference; verify chapter and page use before manuscript citation.}
+}
+
+@article{sameni_clifford_2010_review_ecg,
+  author  = {Sameni, Reza and Clifford, Gari D.},
+  title   = {A Review of Fetal ECG Signal Processing: Issues and Promising Directions},
+  journal = {The Open Pacing, Electrophysiology \& Therapy Journal},
+  year    = {2010},
+  volume  = {3},
+  pages   = {4--20},
+  doi     = {10.2174/1876536X01003010004},
+  note    = {Use only where fetal ECG or general denoising/morphology-processing context is relevant.}
 }
