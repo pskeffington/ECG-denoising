@@ -33,7 +33,6 @@ def main() -> None:
         NSTDB_PN_DIR,
         dl_dir=str(args.data_root / "nstdb"),
         records=nstdb_records,
-        annotators=["atr"],
         keep_subdirs=False,
         overwrite=args.overwrite,
     )
@@ -41,7 +40,6 @@ def main() -> None:
         MITDB_PN_DIR,
         dl_dir=str(args.data_root / "mitdb"),
         records=mitdb_records,
-        annotators=["atr"],
         keep_subdirs=False,
         overwrite=args.overwrite,
     )
