@@ -16,7 +16,7 @@ Among open ECG datasets, how do classical filtering, wavelet/time-frequency meth
 
 ## Current update — 2026-06-23
 
-The repository is moving from v0.1.0 foundation mode toward a v0.2.0 executable benchmark scaffold. The current code supports synthetic placeholder tests and the first real-data NSTDB benchmark path through `wfdb`. Raw PhysioNet waveform data remain outside git.
+The repository is moving from v0.1.0 foundation mode toward a v0.2.0 executable benchmark scaffold. The current code supports synthetic tests and the first real-data NSTDB benchmark path through `wfdb`. Raw PhysioNet waveform data remain outside git.
 
 ## Primary Contribution
 
@@ -59,10 +59,16 @@ Install the package locally:
 python -m pip install -e ".[dev]"
 ```
 
-Run the first real-data NSTDB benchmark by streaming public records through WFDB. Use `--sampto` for a short smoke run before running full records:
+Run the full baseline signal-quality table by streaming public records through WFDB. Use `--sampto` for a short smoke run before running full records:
 
 ```bash
-python scripts/run_nstdb_real_benchmark.py --sampto 5000 --output results/baseline_signal_quality.csv
+python scripts/run_nstdb_real_benchmark.py --methods all --sampto 5000 --output results/baseline_signal_quality.csv
+```
+
+Run a subset of methods:
+
+```bash
+python scripts/run_nstdb_real_benchmark.py --methods bandpass,bandpass_notch --sampto 5000 --output results/baseline_signal_quality.csv
 ```
 
 Optionally cache Phase 1 files outside git:
@@ -74,7 +80,7 @@ python scripts/fetch_phase1_data.py --data-root ../ecg_data
 Then run from the local cache:
 
 ```bash
-python scripts/run_nstdb_real_benchmark.py --data-root ../ecg_data --sampto 5000 --output results/baseline_signal_quality.csv
+python scripts/run_nstdb_real_benchmark.py --data-root ../ecg_data --methods all --sampto 5000 --output results/baseline_signal_quality.csv
 ```
 
 ## Repository Structure
@@ -93,4 +99,4 @@ python scripts/run_nstdb_real_benchmark.py --data-root ../ecg_data --sampto 5000
 
 ## Current Stage
 
-v0.2.0 scaffold in progress: non-operational research classification, Phase 1 dataset inventory, installable Python package scaffold, synthetic tests, and first real-data NSTDB benchmark path through PhysioNet/WFDB.
+v0.2.0 scaffold in progress: non-operational research classification, Phase 1 dataset inventory, installable Python package scaffold, synthetic tests, validated classical baseline filters, and first real-data NSTDB benchmark table path through PhysioNet/WFDB.
