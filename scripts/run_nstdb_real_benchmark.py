@@ -20,13 +20,24 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output", type=Path, default=Path("results/baseline_signal_quality.csv"))
     parser.add_argument("--channel", type=int, default=0)
     parser.add_argument("--sampto", type=int, default=None, help="Optional sample limit for smoke tests")
+    parser.add_argument("--data-root", type=Path, default=None, help="Optional local WFDB cache root outside git")
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    rows = [real_result_as_row(run_nstdb_record(row, channel=args.channel, sampto=args.sampto)) for row in NSTDB_PHASE1_RECORDS]
+    rows = [
+        real_result_as_row(
+            run_nstdb_record(
+                row,
+                channel=args.channel,
+                sampto=args.sampto,
+                data_root=args.data_root,
+            )
+        )
+        for row in NSTDB_PHASE1_RECORDS
+    ]
     fieldnames = list(rows[0].keys())
     with args.output.open("w", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
