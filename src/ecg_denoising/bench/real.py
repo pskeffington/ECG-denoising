@@ -7,7 +7,7 @@ from pathlib import Path
 
 from ecg_denoising.data.records import NstdbRecord
 from ecg_denoising.data.wfdb_io import load_nstdb_pair
-from ecg_denoising.methods.classical import bandpass_placeholder
+from ecg_denoising.methods.classical import apply_classical_method
 from ecg_denoising.metrics.signal_quality import pearson_corr, prd, rmse, snr_improvement
 
 
@@ -34,20 +34,21 @@ def run_nstdb_record(
     channel: int = 0,
     sampto: int | None = None,
     data_root: Path | None = None,
+    method: str = "bandpass",
 ) -> RealBenchmarkResult:
-    """Run the current baseline on one NSTDB record.
+    """Run a named classical baseline on one NSTDB record.
 
     This function loads real PhysioNet data through wfdb or from a local cache.
     It is still a non-operational offline benchmark and does not imply clinical
     validation.
     """
     pair = load_nstdb_pair(row, channel=channel, sampto=sampto, data_root=data_root)
-    denoised = bandpass_placeholder(pair.noisy)
+    denoised = apply_classical_method(pair.noisy, pair.sample_rate, method=method)
     return RealBenchmarkResult(
         dataset="nstdb",
         record=pair.record,
         clean_record=pair.clean_record,
-        method="bandpass_placeholder",
+        method=method,
         snr_level_db=pair.snr_db,
         channel=pair.channel,
         sample_rate=pair.sample_rate,
