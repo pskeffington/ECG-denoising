@@ -3,24 +3,28 @@
 **Project:** ECG denoising review-benchmark  
 **Maintainer:** Paul Skeffington, MS, MPH  
 **Status date:** 2026-06-23  
-**Current stage:** v0.1.0 foundation to v0.2.0 executable baseline
+**Current stage:** v0.1.0 foundation to v0.2.0 executable baseline  
+**Project classification:** non-operational academic/research scaffold
 
 ## Priority Order
 
-### P0 — Repository governance and exposure control
+### P0 — Research governance and exposure guardrails
 
-The repository is currently public. If this project is operational or intended to remain under active private development, convert the repository to private before adding implementation details, unpublished benchmark outputs, local paths, credential notes, or manuscript-draft claims.
+This repository should remain clearly separated from operational systems. The current roadmap treats it as an academic/research benchmark scaffold for open ECG denoising methods, not as an operational medical, diagnostic, monitoring, surveillance, or deployment system.
 
 **Actions**
 
-- Convert repository visibility from public to private if operational.
+- Keep the project framed as a reproducible review-benchmark, not an operational pipeline.
+- Do not include clinical deployment instructions, live-monitoring claims, patient-specific decision logic, or production integration details.
 - Keep raw PhysioNet data out of git.
 - Keep local paths, credentials, API keys, and credentialed-data notes in ignored local configuration only.
 - Keep filenames and object names plain Latin characters.
+- Reassess repository visibility only if the scope changes toward unpublished sensitive methods, credentialed-data handling, or operational deployment.
 
 **Exit criteria**
 
-- Repository visibility matches project risk classification.
+- Repository classification is explicit: non-operational academic/research scaffold.
+- Public visibility is intentional only while the repository contains non-sensitive documentation, reproducible benchmark scaffolding, and no raw or credentialed data.
 - No raw waveform data or local credentials are committed.
 - `.gitignore` continues to block local environment files, data caches, build artifacts, and temporary output.
 
@@ -44,7 +48,7 @@ The project scope, dataset inventory, noise taxonomy, method matrix seed, and be
 
 ### P2 — Build executable benchmark skeleton
 
-Move from documentation scaffold to reproducible code scaffold without committing raw data.
+Move from documentation scaffold to reproducible code scaffold without committing raw data. Keep the implementation limited to offline benchmarking, synthetic/noise-injection experiments, and reproducible metric calculation.
 
 **Proposed source layout**
 
@@ -88,6 +92,7 @@ src/ecg_denoising/
 - A clean environment can install the package.
 - Tests run without requiring raw PhysioNet data.
 - Benchmark code can operate on synthetic placeholder ECG arrays.
+- No runtime path implies live clinical use or operational monitoring.
 
 ### P3 — Complete the method review matrix
 
@@ -113,15 +118,16 @@ After the executable scaffold exists, run the first Phase 1 benchmark on open da
 
 - Generate `results/baseline_signal_quality.csv`.
 - Generate `results/morphology_preservation.csv`.
-- Generate clean/noisy/denoised overlay figures.
+- Generate clean/noisy/denoised ECG overlay figures.
 - Version output parameters and random seeds.
 - Document preprocessing parameters.
 
 **Exit criteria**
 
-- Results are reproducible from a single command.
+- Results are reproducible from a single offline command.
 - Output tables match `docs/04_benchmark_protocol.md`.
 - Figures are traceable to method, noise type, SNR level, and dataset source.
+- Results are not represented as clinical validation or deployment evidence.
 
 ### P5 — Manuscript integration
 
@@ -138,10 +144,11 @@ Only after baseline outputs are reproducible, begin claims suitable for manuscri
 
 - Manuscript claims trace to repo artifacts.
 - No method comparison is presented as final without documented preprocessing and metric validation.
+- No claim implies operational readiness, diagnostic authority, or patient-care deployment.
 
 ## Immediate Action Queue
 
-1. Convert repository to private if operational.
+1. Keep repository classification explicit as non-operational research scaffold.
 2. Update `docs/01_dataset_inventory.md` with source/citation fields.
 3. Review and close issues 001, 003, and 005 if their acceptance criteria are met.
 4. Keep issue 004 open until 25 studies are indexed.
@@ -154,4 +161,4 @@ Only after baseline outputs are reproducible, begin claims suitable for manuscri
 
 ## Recommended Next Milestone
 
-**v0.2.0 executable baseline** should include private/governed repository status, finalized Phase 1 dataset documentation, installable Python package scaffold, deterministic synthetic benchmark run, and passing tests that do not require raw external data.
+**v0.2.0 executable baseline** should include explicit non-operational research classification, finalized Phase 1 dataset documentation, installable Python package scaffold, deterministic synthetic benchmark run, and passing tests that do not require raw external data.
