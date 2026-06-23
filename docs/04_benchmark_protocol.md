@@ -30,6 +30,19 @@ The initial benchmark uses fixed SNR levels:
 - DWT thresholding
 - SWT thresholding
 
+## Classical Baseline Parameters
+
+The first executable baselines are deterministic, sample-rate-aware research filters implemented with SciPy. They are benchmark baselines only and are not clinical deployment code.
+
+| Method name | Implementation | Default parameters | Primary benchmark role |
+|---|---|---|---|
+| `highpass` | Butterworth SOS high-pass with zero-phase filtering | cutoff = 0.5 Hz; order = 4 | Baseline-wander reduction |
+| `bandpass` | Butterworth SOS bandpass with zero-phase filtering | low = 0.5 Hz; high = 40 Hz; order = 4 | General ECG denoising baseline |
+| `notch` | IIR notch with zero-phase filtering | notch = 60 Hz; quality factor = 30 | Powerline interference baseline |
+| `bandpass_notch` | Bandpass followed by notch | bandpass defaults plus notch defaults | Combined common-noise baseline |
+
+The real-data NSTDB benchmark can select these methods by name with `--method`. For Phase 1, method comparisons should be interpreted as reproducible preprocessing benchmarks, not clinical validation.
+
 ## Signal-Quality Metrics
 
 - SNR improvement
