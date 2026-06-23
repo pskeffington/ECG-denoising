@@ -4,9 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-import numpy as np
-
-from ecg_denoising.methods.classical import bandpass_placeholder
+from ecg_denoising.methods.classical import apply_classical_method
 from ecg_denoising.metrics.signal_quality import pearson_corr, prd, rmse, snr_improvement
 from ecg_denoising.noise.inject import add_noise_at_snr
 from ecg_denoising.noise.synth import synthetic_ecg, white_noise
@@ -24,17 +22,23 @@ class BenchmarkResult:
     snr_improvement_db: float
 
 
-def run_synthetic_baseline(length: int = 1000, snr_level_db: float = 0.0, seed: int = 1729) -> BenchmarkResult:
+def run_synthetic_baseline(
+    length: int = 1000,
+    snr_level_db: float = 0.0,
+    seed: int = 1729,
+    sample_rate: float = 250.0,
+    method: str = "bandpass",
+) -> BenchmarkResult:
     """Run one offline synthetic placeholder benchmark.
 
     This does not use clinical data and does not imply clinical validation.
     """
-    clean = synthetic_ecg(length=length)
+    clean = synthetic_ecg(length=length, sample_rate=sample_rate)
     noise = white_noise(length=length, seed=seed)
     noisy = add_noise_at_snr(clean, noise, snr_level_db)
-    denoised = bandpass_placeholder(noisy)
+    denoised = apply_classical_method(noisy, sample_rate, method=method)
     return BenchmarkResult(
-        method="bandpass_placeholder",
+        method=method,
         snr_level_db=float(snr_level_db),
         rmse=rmse(clean, denoised),
         prd=prd(clean, denoised),

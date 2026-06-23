@@ -21,6 +21,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--channel", type=int, default=0)
     parser.add_argument("--sampto", type=int, default=None, help="Optional sample limit for smoke tests")
     parser.add_argument("--data-root", type=Path, default=None, help="Optional local WFDB cache root outside git")
+    parser.add_argument("--method", type=str, default="bandpass", help="One of highpass, bandpass, notch, bandpass_notch")
     return parser.parse_args()
 
 
@@ -34,6 +35,7 @@ def main() -> None:
                 channel=args.channel,
                 sampto=args.sampto,
                 data_root=args.data_root,
+                method=args.method,
             )
         )
         for row in NSTDB_PHASE1_RECORDS
