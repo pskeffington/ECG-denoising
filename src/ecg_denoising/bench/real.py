@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from pathlib import Path
 
 from ecg_denoising.data.records import NstdbRecord
 from ecg_denoising.data.wfdb_io import load_nstdb_pair
@@ -28,13 +29,19 @@ class RealBenchmarkResult:
     snr_improvement_db: float
 
 
-def run_nstdb_record(row: NstdbRecord, channel: int = 0, sampto: int | None = None) -> RealBenchmarkResult:
+def run_nstdb_record(
+    row: NstdbRecord,
+    channel: int = 0,
+    sampto: int | None = None,
+    data_root: Path | None = None,
+) -> RealBenchmarkResult:
     """Run the current baseline on one NSTDB record.
 
-    This function loads real PhysioNet data through wfdb. It is still a
-    non-operational offline benchmark and does not imply clinical validation.
+    This function loads real PhysioNet data through wfdb or from a local cache.
+    It is still a non-operational offline benchmark and does not imply clinical
+    validation.
     """
-    pair = load_nstdb_pair(row, channel=channel, sampto=sampto)
+    pair = load_nstdb_pair(row, channel=channel, sampto=sampto, data_root=data_root)
     denoised = bandpass_placeholder(pair.noisy)
     return RealBenchmarkResult(
         dataset="nstdb",
