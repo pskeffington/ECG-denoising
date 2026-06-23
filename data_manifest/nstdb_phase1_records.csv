@@ -1,0 +1,13 @@
+record,clean_record,snr_db,noise_kind,physionet_database,physionet_version,phase
+118e_6,118,-6,electrode_motion,nstdb,1.0.0,1
+118e00,118,0,electrode_motion,nstdb,1.0.0,1
+118e06,118,6,electrode_motion,nstdb,1.0.0,1
+118e12,118,12,electrode_motion,nstdb,1.0.0,1
+118e18,118,18,electrode_motion,nstdb,1.0.0,1
+118e24,118,24,electrode_motion,nstdb,1.0.0,1
+119e_6,119,-6,electrode_motion,nstdb,1.0.0,1
+119e00,119,0,electrode_motion,nstdb,1.0.0,1
+119e06,119,6,electrode_motion,nstdb,1.0.0,1
+119e12,119,12,electrode_motion,nstdb,1.0.0,1
+119e18,119,18,electrode_motion,nstdb,1.0.0,1
+119e24,119,24,electrode_motion,nstdb,1.0.0,1

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ecg-denoising"
+version = "0.2.0"
+description = "Non-operational ECG denoising review-benchmark scaffold."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Paul Skeffington", email = "paulskeffington@gmail.com" }
+]
+dependencies = [
+  "numpy>=1.26",
+  "wfdb>=4.1"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
