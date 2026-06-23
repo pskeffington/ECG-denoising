@@ -59,7 +59,7 @@ Install the package locally:
 python -m pip install -e ".[dev]"
 ```
 
-Run the first real-data NSTDB benchmark. Use `--sampto` for a short smoke run before running full records:
+Run the first real-data NSTDB benchmark by streaming public records through WFDB. Use `--sampto` for a short smoke run before running full records:
 
 ```bash
 python scripts/run_nstdb_real_benchmark.py --sampto 5000 --output results/baseline_signal_quality.csv
@@ -69,6 +69,12 @@ Optionally cache Phase 1 files outside git:
 
 ```bash
 python scripts/fetch_phase1_data.py --data-root ../ecg_data
+```
+
+Then run from the local cache:
+
+```bash
+python scripts/run_nstdb_real_benchmark.py --data-root ../ecg_data --sampto 5000 --output results/baseline_signal_quality.csv
 ```
 
 ## Repository Structure
