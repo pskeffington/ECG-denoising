@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/pskeffington/ECG-denoising/schemas/benchmark_result.schema.json",
+  "title": "Benchmark Result",
+  "description": "Minimum viable benchmark-result object for ECG denoising, morphology preservation, noise robustness, and bounded biomedical-AI evaluation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "benchmark_result_id",
+    "dataset_id",
+    "segment_id",
+    "noise_id",
+    "method_id",
+    "feature_ids",
+    "metric_ids",
+    "result_summary",
+    "uncertainty_note",
+    "review_status",
+    "claim_boundary",
+    "public_safety_boundary"
+  ],
+  "properties": {
+    "benchmark_result_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dataset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "segment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "noise_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "noise_type": {
+      "type": "string",
+      "enum": [
+        "baseline_wander",
+        "powerline_interference",
+        "muscle_artifact",
+        "electrode_motion",
+        "white_noise",
+        "mixed_noise",
+        "unknown_or_unclassified"
+      ]
+    },
+    "noise_severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "extreme"
+      ]
+    },
+    "method_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "method_family": {
+      "type": "string",
+      "enum": [
+        "filtering",
+        "wavelet",
+        "adaptive_filtering",
+        "statistical_decomposition",
+        "lightweight_deep_learning",
+        "hybrid",
+        "baseline_or_no_denoising"
+      ]
+    },
+    "feature_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "metric_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "morphology_feature_families": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "p_wave_presence",
+          "qrs_complex_shape",
+          "r_peak_location",
+          "qrs_duration",
+          "st_segment_shape",
+          "t_wave_shape",
+          "pr_interval_stability",
+          "qt_interval_stability",
+          "amplitude_preservation",
+          "beat_to_beat_consistency"
+        ]
+      }
+    },
+    "metric_families": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "noise_reduction",
+          "waveform_similarity",
+          "peak_alignment",
+          "interval_stability",
+          "amplitude_error",
+          "morphology_distortion",
+          "method_runtime",
+          "robustness_across_noise"
+        ]
+      }
+    },
+    "result_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "uncertainty_note": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "review_status": {
+      "type": "string",
+      "enum": [
+        "not_started",
+        "draft",
+        "requires_review",
+        "reviewed",
+        "approved",
+        "rejected",
+        "superseded"
+      ]
+    },
+    "claim_boundary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "public_safety_boundary": {
+      "type": "string",
+      "enum": [
+        "synthetic",
+        "public_dataset",
+        "internal_review",
+        "restricted"
+      ]
+    },
+    "ml_readiness": {
+      "type": "string",
+      "enum": [
+        "not_ready",
+        "schema_ready",
+        "feature_ready",
+        "validation_ready",
+        "model_ready",
+        "review_gated"
+      ]
+    }
+  }
+}
