@@ -3,19 +3,50 @@
 Author: Paul Skeffington, MS, MPH  
 GitHub: `@pskeffington-github`  
 Public contact: `paulskeffington@gmail.com`  
-Repository status: non-operational academic/research benchmark scaffold  
-Last documentation refresh: 2026-06-25
+Repository status: non-clinical academic/research benchmark scaffold  
+Last documentation refresh: 2026-07-03
 
 ## Purpose
 
 This repository is a reproducible review and benchmark scaffold for ECG noise-reduction methods using open PhysioNet datasets.
 
-This repository contributes the **Resilient Sensing** lane of the broader portfolio evidence chain.
+This repository contributes the **Biomedical Signal Evaluation** lane of the broader portfolio evidence chain.
 
-## Portfolio role
+## Public-Interest Research Boundary
+
+This repository is maintained for biomedical engineering scholarship, open-data benchmark development, signal-quality documentation, and reproducible analysis. It supports non-clinical morphology-preservation review, benchmark governance, noise taxonomy, and human-reviewed research outputs.
+
+It does not provide clinical advice, diagnostic interpretation, patient-level findings, model-performance claims, device claims, denoising superiority claims, biomedical deployment readiness, or regulatory conclusions. Outputs are intended to support documentation, quality review, and further research.
+
+## Current Research Status
+
+The repository is moving from v0.1.0 foundation mode toward a v0.2.0 executable benchmark scaffold. The current code supports synthetic tests and the first real-data NSTDB benchmark path through `wfdb`. Raw PhysioNet waveform data remain outside git.
+
+### Current Stage
+
+- Stage: v0.2.0 benchmark scaffold in progress
+- Evidence status: Internal repository evidence available; external validation pending
+- Data status: Open PhysioNet data accessed through documented tooling; raw waveform data excluded from git
+- Primary limitation: Requires expanded validation, reproducibility checks, and manuscript framing before publication-level claims
+
+### Recent Progress
+
+- README framing revised toward public-facing scholarly presentation
+- Terminology revised toward biomedical signal evaluation and benchmark governance
+- Non-clinical boundary preserved for all morphology and signal-quality language
+
+### Next Actions
+
+1. Refresh benchmark_result proof packet.
+2. Add public-safe benchmark summary for Portfolio alignment.
+3. Keep all claims non-clinical and benchmark-governance oriented.
+4. Mirror any validated benchmark feature updates into Portfolio feature-registry artifacts.
+5. Connect outputs to the portfolio evidence ledger.
+
+## Portfolio Role
 
 ```text
-Portfolio pillar: Resilient Sensing
+Portfolio pillar: Biomedical Signal Evaluation
 Primary object: benchmark_result
 Candidate ML task: benchmark_result_outlier_detection
 Current maturity: established synthetic benchmark-result evidence
@@ -25,13 +56,13 @@ The repository supports signal-integrity review, noise taxonomy, benchmark gover
 
 ## Focus
 
-This repository evaluates ECG denoising methods for baseline wander, muscle artifact, electrode-motion artifact, and powerline interference. The review emphasizes both signal-quality improvement and preservation of clinically relevant ECG morphology while keeping all claims non-clinical and research-bounded.
+This repository evaluates ECG denoising methods for baseline wander, muscle artifact, electrode-motion artifact, and powerline interference. The review emphasizes both signal-quality improvement and preservation of ECG morphology while keeping all claims non-clinical and research-bounded.
 
-## Core question
+## Core Question
 
 Among open ECG datasets, how do classical filtering, wavelet/time-frequency methods, and lightweight deep-learning denoisers compare in reducing common ECG noise while preserving waveform morphology under bounded, non-clinical benchmark conditions?
 
-## Evidence chain
+## Evidence Chain
 
 ```text
 benchmark_result
@@ -46,34 +77,30 @@ benchmark_result
   -> HSE alignment proof packet
 ```
 
-## Current update — 2026-06-25
-
-The repository is moving from v0.1.0 foundation mode toward a v0.2.0 executable benchmark scaffold. The current code supports synthetic tests and the first real-data NSTDB benchmark path through `wfdb`. Raw PhysioNet waveform data remain outside git.
-
-## Primary contribution
+## Primary Contribution
 
 The project contributes a reproducible review-benchmark framework that separates general signal-quality improvement from morphology-preservation review. The intended contribution is benchmark governance and signal-integrity framing, not clinical validation.
 
-## Phase 1 datasets
+## Phase 1 Datasets
 
 - MIT-BIH Noise Stress Test Database
 - MIT-BIH Arrhythmia Database
 - PTB-XL
 - PTB-XL+
 
-## Phase 2 datasets
+## Phase 2 Datasets
 
 - MIMIC-IV-ECG
 - MIMIC-III Waveform Database
 
-## Method families
+## Method Families
 
 - Classical filters
 - Adaptive filters
 - Wavelet and time-frequency methods
 - Lightweight deep-learning denoisers
 
-## Primary metrics
+## Primary Metrics
 
 - SNR improvement
 - RMSE
@@ -83,7 +110,7 @@ The project contributes a reproducible review-benchmark framework that separates
 - QRS distortion
 - ST-segment preservation
 
-## Real-data benchmark path
+## Real-Data Benchmark Path
 
 Install the package locally:
 
@@ -115,7 +142,7 @@ Then run from the local cache:
 python scripts/run_nstdb_real_benchmark.py --data-root ../ecg_data --methods all --sampto 5000 --output results/baseline_signal_quality.csv
 ```
 
-## Repository structure
+## Repository Structure
 
 ```text
 .
@@ -129,27 +156,14 @@ python scripts/run_nstdb_real_benchmark.py --data-root ../ecg_data --methods all
 └── tests/
 ```
 
-## Supported contribution
+## Supported Contribution
 
 ```text
-A resilient-sensing benchmark pathway for synthetic outlier-review planning, noise-taxonomy review, and morphology-preservation governance.
+A biomedical signal benchmark pathway for synthetic outlier-review planning, noise-taxonomy review, and morphology-preservation governance.
 ```
 
-## Unsupported contribution
+## Unsupported Contribution
 
 ```text
 No clinical validity, diagnostic utility, patient-level interpretation, denoising superiority, method endorsement, biomedical deployment readiness, or model-performance claim is made.
 ```
-
-## Next targeted progression
-
-```text
-1. Refresh benchmark_result proof packet.
-2. Add public-safe benchmark summary for Portfolio alignment.
-3. Keep all claims non-clinical and benchmark-governance oriented.
-4. Mirror any validated benchmark feature updates into Portfolio feature-registry artifacts.
-```
-
-## Current stage
-
-v0.2.0 scaffold in progress: non-operational research classification, Phase 1 dataset inventory, installable Python package scaffold, synthetic tests, validated classical baseline filters, and first real-data NSTDB benchmark table path through PhysioNet/WFDB.
