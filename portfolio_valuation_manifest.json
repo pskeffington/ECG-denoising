@@ -1,0 +1,21 @@
+{
+  "schema_version": "portfolio-valuation-manifest/v1",
+  "repository": "pskeffington/ECG-denoising",
+  "portfolio_valuator": "pskeffington/Portfolio",
+  "valuation_status": "aligned_internal_estimate",
+  "market_lane": "health data science / biomedical analytics",
+  "maturity_stage": "intake",
+  "evidence_grade": "C+",
+  "product_surface": "manuscript_report_scaffold",
+  "integration_role": "biomedical benchmark and non-clinical signal-evaluation asset",
+  "public_safety_status": "clean",
+  "risk_level": "medium",
+  "current_value_range_usd": {"low": 35000, "high": 250000},
+  "forward_value_range_usd": {"low": 500000, "high": 3000000},
+  "collateral_treatment": "Apply heavy validation, regulatory, reproducibility, transferability, and market-adoption discounts; no clinical collateral value is asserted.",
+  "evidence_paths": ["README.md", "portfolio_valuation_manifest.json"],
+  "next_value_unlocks": ["add benchmark dataset", "publish reproducible denoising workflow", "generate morphology-preservation results table", "add non-clinical validation report"],
+  "missing_financial_inputs": ["revenue", "customers", "contracts", "licensing", "independent appraisal", "external benchmark validation"],
+  "claim_boundary": "Research and non-clinical evaluation only; no diagnostic, treatment, safety, regulatory, or clinical-performance claim is asserted.",
+  "last_aligned_on": "2026-07-21"
+}
