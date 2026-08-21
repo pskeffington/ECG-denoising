@@ -3,12 +3,12 @@
 Author: Paul Skeffington, MS, MPH  
 GitHub: `@pskeffington-github`  
 Public contact: `paulskeffington@gmail.com`  
-Repository status: non-clinical academic/research benchmark scaffold  
-Last documentation refresh: 2026-07-03
+Repository status: executable non-clinical academic/research benchmark with a defined public freeze protocol  
+Last documentation refresh: 2026-08-19
 
 ## Purpose
 
-This repository is a reproducible review and benchmark scaffold for ECG noise-reduction methods using open PhysioNet datasets.
+This repository is a reproducible review and benchmark framework for ECG noise-reduction methods using open PhysioNet datasets.
 
 This repository contributes the **Biomedical Signal Evaluation** lane of the broader portfolio evidence chain.
 
@@ -16,32 +16,38 @@ This repository contributes the **Biomedical Signal Evaluation** lane of the bro
 
 This repository is maintained for biomedical engineering scholarship, open-data benchmark development, signal-quality documentation, and reproducible analysis. It supports non-clinical morphology-preservation review, benchmark governance, noise taxonomy, and human-reviewed research outputs.
 
-It does not provide clinical advice, diagnostic interpretation, patient-level findings, model-performance claims, device claims, denoising superiority claims, biomedical deployment readiness, or regulatory conclusions. Outputs are intended to support documentation, quality review, and further research.
+It does not provide clinical advice, diagnostic interpretation, patient-level findings, device claims, biomedical deployment readiness, regulatory conclusions, or clinical-superiority claims. Outputs are intended to support documentation, quality review, and further research.
 
 ## Current Research Status
 
-The repository is moving from v0.1.0 foundation mode toward a v0.2.0 executable benchmark scaffold. The current code supports synthetic tests and the first real-data NSTDB benchmark path through `wfdb`. Raw PhysioNet waveform data remain outside git.
+The repository now contains an executable Phase 1 NSTDB benchmark path through `wfdb`, synthetic benchmark-object validation artifacts, and a formal public benchmark freeze protocol. The first public freeze is bounded to 12 MIT-BIH Noise Stress Test Database electrode-motion records and four deterministic classical baselines, for an expected one-channel result cardinality of 48 rows before any documented exclusions.
+
+A comparative public result is **not** claimed merely because the executable path or freeze protocol exists. Public comparative language remains gated on a completed freeze packet, reproducibility metadata, row-count reconciliation, result hashing, rerun agreement, and morphology-preservation review.
+
+Raw PhysioNet waveform data remain outside git; only derived metrics, metadata, schemas, documentation, and reproducible code are appropriate for the public repository.
 
 ### Current Stage
 
-- Stage: v0.2.0 benchmark scaffold in progress
-- Evidence status: Internal repository evidence available; external validation pending
-- Data status: Open PhysioNet data accessed through documented tooling; raw waveform data excluded from git
-- Primary limitation: Requires expanded validation, reproducibility checks, and manuscript framing before publication-level claims
+- Stage: executable Phase 1 benchmark pathway with public freeze protocol
+- Evidence status: schema/synthetic validation, executable real-data path, and freeze protocol present; reviewed comparative freeze pending
+- Data status: versioned public PhysioNet data accessed through documented tooling; raw waveform data excluded from git
+- Primary limitation: a reviewed full-record freeze packet and morphology-preservation gate are still required before comparative method claims
 
 ### Recent Progress
 
-- README framing revised toward public-facing scholarly presentation
-- Terminology revised toward biomedical signal evaluation and benchmark governance
-- Non-clinical boundary preserved for all morphology and signal-quality language
+- Defined the public benchmark freeze contract for the Phase 1 NSTDB benchmark.
+- Aligned the biomedical proof packet and terminology with the non-clinical research boundary.
+- Reconciled the executable real-data path with public CV evidence language without promoting unsupported comparative claims.
+- Preserved explicit separation between signal-quality benchmark execution and clinical or diagnostic validity.
 
 ### Next Actions
 
-1. Refresh benchmark_result proof packet.
-2. Add public-safe benchmark summary for Portfolio alignment.
-3. Keep all claims non-clinical and benchmark-governance oriented.
-4. Mirror any validated benchmark feature updates into Portfolio feature-registry artifacts.
-5. Connect outputs to the portfolio evidence ledger.
+1. Execute and review the full Phase 1 benchmark configuration.
+2. Record repository SHA, environment, dataset versions, command, parameters, row count, and result digest in a freeze metadata artifact.
+3. Reconcile the expected 48-row one-channel benchmark cardinality with actual output and document any exclusions.
+4. Re-run the frozen configuration and document numerical reproducibility tolerance.
+5. Complete the morphology-preservation gate for R-peak timing, QRS distortion, and ST-segment handling before any comparative morphology claim.
+6. Promote only reviewed, bounded evidence into the Portfolio evidence envelope and public CV surfaces.
 
 ## Portfolio Role
 
@@ -49,10 +55,10 @@ The repository is moving from v0.1.0 foundation mode toward a v0.2.0 executable 
 Portfolio pillar: Biomedical Signal Evaluation
 Primary object: benchmark_result
 Candidate ML task: benchmark_result_outlier_detection
-Current maturity: established synthetic benchmark-result evidence
+Current maturity: executable benchmark pathway; comparative public result freeze pending
 ```
 
-The repository supports signal-integrity review, noise taxonomy, benchmark governance, and non-clinical morphology-preservation framing. It does not claim clinical validity, diagnostic utility, patient-level interpretation, denoising superiority, biomedical deployment readiness, or model performance.
+The repository supports signal-integrity review, noise taxonomy, benchmark governance, and non-clinical morphology-preservation framing. It does not claim clinical validity, diagnostic utility, patient-level interpretation, denoising superiority, biomedical deployment readiness, or generalized model performance.
 
 ## Focus
 
@@ -70,16 +76,16 @@ benchmark_result
   -> synthetic fixture
   -> benchmark readiness matrix
   -> benchmark validation report
-  -> benchmark outlier detection task card
-  -> feature registry representation in Portfolio
-  -> synthetic feature dataset row in Portfolio
-  -> generated validation result in Portfolio
-  -> HSE alignment proof packet
+  -> executable NSTDB benchmark path
+  -> public benchmark freeze protocol
+  -> reviewed freeze packet
+  -> portfolio evidence envelope
+  -> public-safe CV evidence
 ```
 
 ## Primary Contribution
 
-The project contributes a reproducible review-benchmark framework that separates general signal-quality improvement from morphology-preservation review. The intended contribution is benchmark governance and signal-integrity framing, not clinical validation.
+The project contributes a reproducible review-benchmark framework that separates benchmark execution, signal-quality measurement, morphology-preservation review, and any later comparative interpretation. The intended contribution is benchmark governance and signal-integrity framing, not clinical validation.
 
 ## Phase 1 Datasets
 
@@ -142,6 +148,8 @@ Then run from the local cache:
 python scripts/run_nstdb_real_benchmark.py --data-root ../ecg_data --methods all --sampto 5000 --output results/baseline_signal_quality.csv
 ```
 
+The requirements for promoting a real-data result are defined in `docs/BENCHMARK_FREEZE_PROTOCOL.md`.
+
 ## Repository Structure
 
 ```text
@@ -159,11 +167,11 @@ python scripts/run_nstdb_real_benchmark.py --data-root ../ecg_data --methods all
 ## Supported Contribution
 
 ```text
-A biomedical signal benchmark pathway for synthetic outlier-review planning, noise-taxonomy review, and morphology-preservation governance.
+A reproducible biomedical signal benchmark pathway with explicit evidence-freeze, morphology-review, and claim-boundary controls.
 ```
 
 ## Unsupported Contribution
 
 ```text
-No clinical validity, diagnostic utility, patient-level interpretation, denoising superiority, method endorsement, biomedical deployment readiness, or model-performance claim is made.
+No clinical validity, diagnostic utility, patient-level interpretation, denoising superiority, method endorsement, biomedical deployment readiness, or generalized model-performance claim is made.
 ```
