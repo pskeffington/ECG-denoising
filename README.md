@@ -1,5 +1,11 @@
 # ECG Denoising
 
+## Portfolio evidence review — 2026-09-17
+
+**Reviewed carry-forward.** The executable NSTDB path and freeze protocol are present. A full one-channel freeze requires 12 records x 4 methods = 48 rows, exact environment/data/result identities, exclusions, rerun agreement, and morphology review. The reviewed evidence does not establish completion of that comparative result freeze.
+
+Maturity and valuation ranges are unchanged. [Current review and next evidence gates](docs/valuation/2026-09-17_review.md). Dates and result claims elsewhere retain their original scope.
+
 Author: Paul Skeffington, MS, MPH  
 GitHub: `@pskeffington-github`  
 Public contact: `paulskeffington@gmail.com`  
