@@ -10,7 +10,7 @@ Author: Paul Skeffington, MS, MPH
 GitHub: `@pskeffington-github`  
 Public contact: `paulskeffington@gmail.com`  
 Repository status: executable non-clinical academic/research benchmark with a defined public freeze protocol  
-Last documentation refresh: 2026-08-19
+Last documentation refresh: 2026-10-07
 
 ## Purpose
 
