@@ -19,7 +19,7 @@
     "low": 250000
   },
   "integration_role": "biomedical signal-quality and morphology-preservation benchmark asset",
-  "last_aligned_on": "2026-09-17",
+  "last_aligned_on": "2026-10-07",
   "market_lane": "biomedical signal processing / reproducible benchmark research",
   "maturity_stage": "validation-gated",
   "missing_financial_inputs": [
