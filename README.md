@@ -181,3 +181,14 @@ A reproducible biomedical signal benchmark pathway with explicit evidence-freeze
 ```text
 No clinical validity, diagnostic utility, patient-level interpretation, denoising superiority, method endorsement, biomedical deployment readiness, or generalized model-performance claim is made.
 ```
+
+## Valuation tracking
+
+Current internal valuation status (2026-10-07 reviewed carry-forward):
+
+- repository current range: **$100K-$225K**
+- conditional forward range: **$250K-$750K**
+- maturity: **validation-gated**
+- evidence grade: **B**
+
+The range covers the reproducible benchmark framework, executable public-data path, freeze protocol, and signal-quality evaluation tooling. It excludes clinical utility, diagnostic validity, device claims, and unreviewed comparative superiority.
